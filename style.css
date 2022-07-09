@@ -1,0 +1,93 @@
+/*
+Theme Name: OAK Plaffeien
+Theme URI: http://pelicula.edge-themes.com
+Description: A child theme of Pelicula, tailored to the needs of Open-Air Kino Plaffeien.
+Author: Nicolas Baeriswyl
+Author URI: https://baeriswyl.dev
+Version: 1.0.1
+Text Domain: pelicula
+Template: pelicula
+*/
+
+body {
+	background-position: center;
+}
+
+.qodef-icon-holder a{
+	position:absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.qodef-content-full-width{
+	padding: 0!important;
+}
+
+.qodef-mobile-header-navigation{
+	background-color: rgba(10,10,10,0.94);
+	overflow: visible;
+}
+
+.qodef-header-navigation > ul > li > a > span::before{
+	bottom: -10px;
+	left: -20%;
+	height: 3px;
+	width: 140%;
+	top: unset;
+}
+
+.qodef-mobile-header-navigation > ul > li > a > span::before{
+	bottom: 0px;
+	left: 0;
+	height: 3px;
+	width: 100%;
+	top: unset;
+}
+
+.qodef-mobile-header-opener path{
+	filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(185deg) brightness(106%) contrast(106%);
+}
+
+.qodef-page-title .qodef-breadcrumbs span:not(.qodef-breadcrumbs-separator)::before {
+	top: unset;
+	bottom: 0;
+}
+
+/* some additional syles for sponsor page. defines how the grid will be layed out.
+ * currently, the grids have a general style for all categories. hauptpartner and medienpartner are styled a bit different */
+
+/* remove before and after content for correct layout */
+#wp-sponsors.grid::before, #wp-sponsors.grid::after {
+	content: unset;
+}
+
+#wp-sponsors.grid {
+	justify-content: center;
+}
+
+#wp-sponsors.grid div.sponsor-item.default {
+	width: calc(100%/6);
+	max-width: calc(100%/6);
+	margin: 0;
+	padding: 8px;
+}
+
+#wp-sponsors.grid div.sponsor-item.default.hauptpartner, #wp-sponsors.grid div.sponsor-item.default.medienpartner{
+	width: calc(100%/3);
+	max-width: calc(100%/3);
+}
+
+@media (max-width:767px) {
+	#wp-sponsors.grid div.sponsor-item.default, #wp-sponsors.grid div.sponsor-item.default.medienpartner {
+		width: 50%;
+		max-width: 50%;
+		padding: 6px;
+	}
+	
+	#wp-sponsors.grid div.sponsor-item.default.hauptpartner {
+		width: 100%;
+		max-width: 100%;
+	}
+	
+}

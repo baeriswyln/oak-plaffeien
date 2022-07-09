@@ -1,0 +1,663 @@
+@import 'media';
+@import 'fonts';
+
+.oakp_movie {
+
+  &.header {
+    width: 100%;
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(mobile){
+      min-height: 500px;
+    }
+
+    .title {
+      width: 100%;
+      position: relative;
+      text-align: center;
+      padding-bottom: 250px;
+      padding-top: 150px;
+
+      @include breakpoint(mobile) {
+        padding-bottom: 150px;
+        padding-top: 100px;
+      }
+
+      h1 {
+        color: #ffffff;
+        mix-blend-mode: overlay;
+        text-shadow: 0 0 20px #0b0000;
+        font-size: 100px;
+        line-height: 95px;
+
+        @include breakpoint(mobile) {
+          font-size: 60px;
+          line-height: 55px;
+        }
+      }
+
+      h2 {
+        font-size: 30px;
+        line-height: 30px;
+        font-weight: normal;
+
+        @include breakpoint(mobile) {
+          font-size: 20px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    .backdrop {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-size: cover;
+      background-position: 50%;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-image: radial-gradient(ellipse at 80% 0, rgba(28, 33, 41, 0), rgba(28, 33, 41, .2) 30%, rgba(28, 33, 41, .7) 50%, #1c2129 70%);
+      }
+    }
+
+    .movie-stripe {
+      background-image: url('../img/moviestripe.png');
+      background-position: bottom;
+      background-repeat: repeat-x;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+
+      @include breakpoint(mobile){
+        background-size: 170%;
+      }
+    }
+  }
+
+  .wrapper {
+    position: relative;
+    padding: 50px 0;
+    margin: 0 15px;
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 auto;
+      padding: 0 10px;
+      max-width: 1024px;
+    }
+
+    .content-wrapper {
+      @include breakpoint(tablet) {
+        width: calc(100% - 17.25rem);
+      }
+
+      @include breakpoint(desktop) {
+        width: calc(100% - 22rem);
+      }
+
+      width: 100%;
+
+      .synopsis, .cast_title {
+        font-size: 24px;
+        color: white;
+        font-family: "Bebas Neue", sans-serif;
+      }
+
+      .info {
+        display: flex;
+        align-items: center;
+
+        .info-text {
+          flex-grow: 1;
+        }
+
+        img {
+          height: 120px;
+          width: auto;
+          margin-right: 10px;
+          border-radius: 5px;
+        }
+      }
+
+      .cast_title {
+        margin-bottom: 0;
+      }
+
+      .cast {
+        display: grid;
+        column-gap: 10px;
+        row-gap: 10px;
+        grid-template-columns: 100%;
+
+        @include breakpoint(desktop) {
+          grid-template-columns: 50% 50%;
+        }
+      }
+
+      .actor {
+        color: white;
+        background: hsla(0deg, 0%, 100%, 0.15);
+        width: 100%;
+        height: 100px;
+        border-radius: 50px;
+        overflow: hidden;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+
+        .face {
+          height: 90px;
+          width: 90px;
+          border-radius: 45px;
+          background-size: cover;
+          background-position: center;
+          margin-right: 10px;
+        }
+
+        .name {
+          font-weight: bold;
+        }
+      }
+
+      > div {
+        margin-bottom: 20px;
+      }
+    }
+
+    .poster-wrapper {
+      width: 16.25rem;
+      height: min-content;
+      padding: .625rem;
+      border-radius: .75rem;
+
+      background: hsla(0, 0%, 100%, .15);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 .3125rem .625rem 0 rgba(0, 0, 0, .05);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      position: relative;
+
+      @include breakpoint(tablet) {
+        display: block;
+      }
+
+      display: none;
+
+      img {
+        position: relative;
+        border-radius: .375rem;
+        line-height: 0;
+        font-size: 0;
+      }
+    }
+
+    .sponsor {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 0;
+      color: white;
+
+      img {
+        border-radius: 0.375rem;
+      }
+    }
+
+    .trailer {
+      margin: 150px 0;
+
+      @include breakpoint(mobile) {
+        iframe {
+          max-height: 200px;
+        }
+      }
+    }
+  }
+
+  .curve-overlay {
+    background-image: url("../img/curve.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+
+    @include breakpoint(mobile) {
+      background-size: 200% 100%;
+    }
+  }
+
+  .bg-black {
+    background-color: black;
+  }
+
+  .eventfrog-btn {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #60BF00;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    margin-top: 5px;
+    transition: background-color 100ms linear;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center
+  ;
+
+    &:hover {
+      background-color: #53a600;
+    }
+
+    .icon {
+      font-family: 'Ticketfrog-Icons' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 0 10px;
+      border-right: 1px solid #ffffff;
+      font-size: 42px;
+      line-height: 30px;
+      vertical-align: middle;
+      margin: 0 10px 0 0;
+
+      &::before {
+        content: "\e904";
+      }
+    }
+  }
+
+}
+
+.mobile-only {
+  display: none;
+  @include breakpoint(mobile) {
+    display: block;
+  }
+}
+
+.mobile-hidden {
+  @include breakpoint(mobile) {
+    display: none;
+  }
+}
+
+.facts {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  width: max-content;
+  margin: auto;
+
+  @include breakpoint(mobile) {
+    font-size: 12px;
+  }
+
+  span {
+    padding-left: 20px;
+    position: relative;
+    top: 0;
+    left: 0;
+
+    &.certification {
+      display: inline-flex;
+      white-space: nowrap;
+      align-items: center;
+      align-content: center;
+      padding: 0.06em 4px 0.15em 4px !important;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1;
+      border-radius: 2px;
+    }
+  }
+
+  span + span::before {
+    font-size: 1.5em;
+    line-height: 1;
+    content: '\2022';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 7px;
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+  }
+}
+
+.oakp_movies_menu_shortcode {
+  ul {
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: block;
+    list-style: none;
+    line-height: normal;
+    position: relative;
+    z-index: 2;
+
+    li {
+      border-width: 0;
+      display: block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      line-height: normal;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      position: relative;
+
+      a {
+        text-align: center;
+        color: #F7EAEAD4;
+        padding: 14px 0;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 0.8em;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+
+        text-decoration: none;
+
+        @include breakpoint(mobile) {
+          font-size: 25px;
+        }
+
+        @include breakpoint(desktop) {
+          letter-spacing: 4px;
+        }
+
+        &:hover {
+          color: #9A0040CC;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.oakp_movies_program_shortcode {
+  .card_movie {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: all .3s;
+
+    &:hover {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    a {
+      height: 200px;
+      display: flex;
+      transition: transform .3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .backdrop {
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-image: radial-gradient(ellipse at 80% 0, rgba(28, 33, 41, 0.4), rgba(28, 33, 41, .6) 30%, rgba(28, 33, 41, .7) 50%, rgba(28, 33, 41, 0.9) 70%);
+      }
+    }
+
+    .poster {
+      height: 100%;
+      z-index: 1;
+    }
+
+    .details {
+      color: white;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      > .wrapper {
+        padding: 10px;
+        z-index: 1;
+      }
+
+      .title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 30px;
+      }
+
+      .date, .facts {
+        color: lightgrey;
+        margin: 0;
+      }
+
+      .synopsis {
+        margin-top: 20px;
+        line-height: 1.1;
+      }
+    }
+  }
+}
+
+.oakp_movies_footer_shortcode {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 50px;
+  grid-row-gap: 20px;
+
+  a {
+    color: white;
+    transition: all .3s;
+
+    &:hover {
+      color: white;
+      transform: scale(1.02);
+    }
+  }
+
+  @include breakpoint(tablet) {
+    grid-template-columns: 50% 50%;
+  }
+
+  .movie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left {
+      text-align: right;
+      width: 30%;
+    }
+
+    .right {
+      text-align: left;
+      width: 60%;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  .date, .title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+  }
+
+  .duration-age, .actors {
+    font-size: 11px;
+    line-height: 1;
+  }
+
+  .actors, .title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.oakp_movies_presenter_shortcode {
+  display: grid;
+  column-gap: 5%;
+  grid-template-columns: 30% 30% 30%;
+
+  @include breakpoint(mobile) {
+    grid-template-columns: 100%;
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      color: white;
+
+      .poster {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .poster img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .movie {
+    margin-bottom: 30px;
+  }
+
+  .poster {
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.3s;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    img {
+      transition: transform 0.3s;
+    }
+  }
+
+  .title {
+    position: relative;
+    width: 100%;
+    padding: 0 10%;
+    margin-top: -15px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+  }
+}
+
+footer {
+  background-color: black;
+  padding: 50px 15px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .footer-inner {
+    max-width: 680px;
+    margin: auto;
+  }
+}
+
+.with-gutters, .oakp_with_gutter {
+  padding: 100px 0 100px 0!important;
+
+  &::before, &::after {
+    content: '\00a0';
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    background-size: 100% 100%;
+    background-position: center;
+    z-index: 10;
+  }
+
+  &::before {
+    top: 0;
+    background-image: url("/wp-content/themes/oak-plaffeien/assets/gutter-top.png");
+  }
+
+  &::after {
+    bottom: 0;
+    background-image: url("/wp-content/themes/oak-plaffeien/assets/gutter-bottom.png");
+  }
+
+  @include breakpoint(mobile){
+    padding: 150px 0;
+
+    &::before, &::after {
+      background-size: 200% 100%;
+    }
+  }
+}
+
+.qodef-mobile-header-opener path {
+  filter: unset;
+}
+
+.tickets {
+  padding: 100px 0;
+  width: 100%;
+}

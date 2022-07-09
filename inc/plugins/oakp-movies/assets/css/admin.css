@@ -1,0 +1,40 @@
+#oakp_searchcomplete {
+  background-color: white;
+  overflow: hidden;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  margin-top: -5px;
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
+  border-top: none;
+}
+#oakp_searchcomplete .result {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#oakp_searchcomplete .result .noresults {
+  width: 100%;
+  font-weight: bold;
+  padding: 20px;
+}
+#oakp_searchcomplete .result:hover {
+  background-color: lightgrey;
+}
+#oakp_searchcomplete .result .content {
+  margin: 0 10px;
+}
+#oakp_searchcomplete .result .content .title {
+  font-weight: bold;
+  font-size: 20px;
+}
+#oakp_searchcomplete .result .content span {
+  display: block;
+}
+#oakp_searchcomplete img {
+  height: 100px;
+}
+
+/*# sourceMappingURL=admin.css.map */
