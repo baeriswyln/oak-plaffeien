@@ -1,0 +1,10 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ssh-client
+    script:
+      - echo success
