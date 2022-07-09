@@ -6,5 +6,6 @@ on:
 jobs:
   deploy:
     runs-on: ssh-client
-    script:
-      - echo success
+    steps:
+      - name: Print something to the console - just a test
+        run: echo Hello world!
