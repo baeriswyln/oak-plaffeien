@@ -22,6 +22,10 @@ $meta_value_sponsor = get_post_meta(get_the_ID(), '_sponsor', true);
 
 <div class="oakp_movie header">
     <div class="backdrop" style="background-image: url('<?php echo $meta_value_backdrop ?>')"></div>
+    <div class="backdrop blur"></div>
+    <div class="backdrop front">
+        <img src="<?php echo $meta_value_backdrop ?>">
+    </div>
     <div class="movie-stripe"></div>
     <div class="title">
         <?php

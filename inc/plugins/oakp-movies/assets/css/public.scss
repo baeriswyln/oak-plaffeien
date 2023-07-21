@@ -10,8 +10,12 @@
     display: flex;
     align-items: center;
 
+    @include breakpoint(tabletDown){
+      min-height: 450px;
+    }
+
     @include breakpoint(mobile){
-      min-height: 500px;
+      min-height: 300px;
     }
 
     .title {
@@ -21,9 +25,14 @@
       padding-bottom: 250px;
       padding-top: 150px;
 
+      @include breakpoint(tabletDown) {
+        padding-bottom: 200px;
+        padding-top: 50px;
+      }
+
       @include breakpoint(mobile) {
-        padding-bottom: 150px;
-        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-top: 50px;
       }
 
       h1 {
@@ -43,6 +52,7 @@
         font-size: 30px;
         line-height: 30px;
         font-weight: normal;
+        margin-top: 0;
 
         @include breakpoint(mobile) {
           font-size: 20px;
@@ -57,16 +67,38 @@
       position: absolute;
       background-size: cover;
       background-position: 50%;
+      text-align: center;
 
-      &::before {
-        content: "";
-        position: absolute;
-        z-index: 0;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background-image: radial-gradient(ellipse at 80% 0, rgba(28, 33, 41, 0), rgba(28, 33, 41, .2) 30%, rgba(28, 33, 41, .7) 50%, #1c2129 70%);
+      @include breakpoint(tablet) {
+        &.blur {
+          background: rgba(0, 0, 0, 0.5);
+          -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+        }
+      }
+
+      &.front {
+        text-align: center;
+
+        img {
+          max-height:100%;
+          visibility: hidden;
+
+          @include breakpoint(tablet){
+            visibility: visible;
+          }
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: 0;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          background-image: radial-gradient(ellipse at 80% 0, rgba(28, 33, 41, 0), rgba(28, 33, 41, .2) 30%, rgba(28, 33, 41, .7) 50%, #1c2129 70%);
+        }
       }
     }
 
@@ -432,12 +464,17 @@
     }
 
     a {
-      height: 200px;
+      height: 250px;
       display: flex;
       transition: transform .3s;
 
       &:hover {
         transform: scale(1.1);
+      }
+
+      .facts {
+        justify-content: left;
+        width: unset;
       }
     }
 
@@ -474,23 +511,24 @@
       position: relative;
 
       > .wrapper {
-        padding: 10px;
+        padding: 20px;
         z-index: 1;
       }
 
       .title {
         font-family: "Bebas Neue", sans-serif;
-        font-size: 30px;
+        font-size: 34px;
+        line-height: 0.9;
       }
 
       .date, .facts {
         color: lightgrey;
-        margin: 0;
+        margin: 5px 0;
       }
 
       .synopsis {
-        margin-top: 20px;
-        line-height: 1.1;
+        margin-top: 25px;
+        line-height: 1.2;
       }
     }
   }
